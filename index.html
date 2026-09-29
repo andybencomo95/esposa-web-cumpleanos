@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz cumpleaños, María Fernanda ♥</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Tipografías: Fraunces (elegante), Great Vibes (manuscrita), Karla (legible) -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Great+Vibes&family=Karla:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+/* ============ IDENTIDAD ============ */
+:root{
+  --bg:#26091b; --bg-deep:#180512;
+  --cream:#f6e8d4; --cream-soft:#efdcc2;
+  --gold:#e3b45f; --gold-soft:#f2d79a;
+  --rose:#f0799a; --rose-deep:#b83a5e; --wine:#5c1638;
+  --frost:#f9eedb;
+  --serif:"Fraunces",serif; --script:"Great Vibes",cursive; --body:"Karla",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  background-image:radial-gradient(1200px 700px at 50% -10%, #3d1030 0%, transparent 60%),
+                   radial-gradient(900px 600px at 85% 110%, #3a0e28 0%, transparent 55%);
+  color:var(--cream); font-family:var(--body); font-size:17px; line-height:1.65;
+  overflow-x:hidden;
+}
+::selection{background:var(--rose);color:var(--bg-deep)}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 26px;position:relative;z-index:2}
+section{padding:110px 0;position:relative;z-index:2}
+
+/* Grano de película */
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:80;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 8s steps(10) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,2%)}}
+
+#balloons{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.balloon{position:absolute;bottom:-170px;animation:rise var(--dur) linear infinite;animation-delay:var(--delay)}
+.b-sway{animation:sway 3.4s ease-in-out infinite alternate}
+.b-body{width:46px;height:58px;border-radius:50% 50% 50% 50%/45% 45% 55% 55%;position:relative;opacity:.85}
+.b-body::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-top:8px solid var(--knot)}
+.b-string{width:1.5px;height:76px;margin:6px auto 0;background:linear-gradient(rgba(246,232,212,.55),transparent);transform:rotate(3deg)}
+@keyframes rise{from{transform:translateY(0)}to{transform:translateY(-135vh)}}
+@keyframes sway{from{transform:translateX(-14px)}to{transform:translateX(14px)}}
+
+#confetti{position:fixed;inset:0;z-index:70;pointer-events:none}
+
+/* ============ BARRA SUPERIOR ============ */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 28px;background:linear-gradient(180deg, rgba(24,5,18,.92), rgba(24,5,18,.75) 70%, transparent);
+  border-bottom:1px solid rgba(227,180,95,.18)}
+.mono{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.15rem;color:var(--gold);letter-spacing:.06em}
+.mono b{color:var(--rose);font-weight:500}
+.music-btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:999px;padding:5px;cursor:pointer;
+  background:linear-gradient(135deg,var(--rose) 0%,var(--gold) 100%);box-shadow:0 6px 18px rgba(240,121,154,.35),inset 0 -3px 6px rgba(0,0,0,.15);
+  transition:box-shadow .35s,transform .2s;position:relative}
+.music-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(240,121,154,.5),inset 0 -3px 6px rgba(0,0,0,.15)}
+.music-btn .knob{width:34px;height:34px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;
+  background:radial-gradient(circle at 35% 30%,#fff7e8,var(--gold-soft) 55%,#d9a94e);color:var(--wine);
+  box-shadow:0 2px 6px rgba(0,0,0,.3);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.music-btn .lbl{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;font-weight:800;color:var(--bg-deep);
+  padding:0 14px 0 2px;transition:.3s}
+.music-btn.playing{box-shadow:0 0 0 3px rgba(242,215,154,.45),0 8px 24px rgba(227,180,95,.55),inset 0 -3px 6px rgba(0,0,0,.15)}
+.music-btn.playing .knob{transform:translateX(2px) rotate(360deg)}
+.music-btn.playing .knob span{display:inline-block;animation:bop 1s ease-in-out infinite}
+@keyframes bop{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+
+/* ============ REVEALS ============ */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease var(--d,0s),transform .9s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.lm{display:block;overflow:hidden}
+.lm .lm-in{display:block;transform:translateY(118%);transition:transform 1.1s cubic-bezier(.19,.8,.22,1) var(--d,0s)}
+.in .lm .lm-in{transform:none}
+
+.kicker{display:inline-flex;align-items:center;gap:14px;font-size:.72rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.kicker::before{content:'';width:44px;height:1px;background:var(--gold)}
+h2.sec{font-family:var(--serif);font-weight:340;font-size:clamp(2.2rem,5vw,3.7rem);line-height:1.08;margin:18px 0 14px}
+h2.sec em{font-style:italic;color:var(--rose)}
+.sub{max-width:560px;color:var(--cream-soft);opacity:.85}
+
+/* ============ SECCIÓN 1 · LA TORTA ============ */
+#fiesta{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-top:130px}
+.fiesta-kicker{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.fiesta-kicker span{color:var(--rose)}
+.twinkle{position:absolute;color:var(--gold);opacity:0;animation:tw 3.5s ease-in-out infinite;font-size:1rem}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.5) rotate(0)}50%{opacity:.9;transform:scale(1.15) rotate(40deg)}}
+
+.cake-stage{position:relative;margin:34px auto 8px}
+.cake-glow{position:absolute;inset:-90px -120px;background:radial-gradient(closest-side,rgba(227,180,95,.32),transparent 70%);
+  filter:blur(6px);animation:pulse 4s ease-in-out infinite;z-index:0}
+@keyframes pulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+.cake{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
+
+.candles{display:flex;gap:14px;margin-bottom:-4px;z-index:3}
+.candle{background:none;border:0;padding:8px 5px 0;display:flex;flex-direction:column;align-items:center;transition:transform .2s}
+.candle:hover{transform:translateY(-3px)}
+.flame{width:13px;height:20px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;
+  background:radial-gradient(circle at 50% 78%, #fff8e1 0%, #ffd98a 34%, #ff9d4d 68%, rgba(255,120,60,.2) 100%);
+  box-shadow:0 0 14px 4px rgba(255,190,90,.55),0 0 42px 10px rgba(255,150,70,.22);
+  transform-origin:50% 100%;animation:flick .16s ease-in-out infinite alternate;margin-bottom:3px}
+@keyframes flick{from{transform:scaleX(1) scaleY(1) rotate(-2deg)}to{transform:scaleX(.88) scaleY(1.12) rotate(2.5deg)}}
+.wick{width:2px;height:6px;background:#3a1a12;position:relative}
+.candle.out .flame{display:none}
+.candle.out .wick::after{content:'';position:absolute;bottom:6px;left:-3px;width:8px;height:8px;border-radius:50%;
+  background:radial-gradient(circle,rgba(220,220,220,.75),transparent 70%);animation:smoke 1.6s ease-out forwards}
+@keyframes smoke{0%{transform:translateY(0) scale(.6);opacity:.8}100%{transform:translateY(-34px) scale(2.4);opacity:0}}
+.c-body{width:11px;border-radius:3px 3px 2px 2px;
+  background:repeating-linear-gradient(75deg,var(--frost) 0 4px,var(--rose) 4px 8px)}
+.candle:nth-child(1) .c-body{height:34px}.candle:nth-child(2) .c-body{height:42px;background:repeating-linear-gradient(75deg,var(--frost) 0 4px,var(--gold) 4px 8px)}
+.candle:nth-child(3) .c-body{height:37px}.candle:nth-child(4) .c-body{height:46px;background:repeating-linear-gradient(75deg,var(--frost) 0 4px,var(--gold) 4px 8px)}
+.candle:nth-child(5) .c-body{height:38px}.candle:nth-child(6) .c-body{height:43px;background:repeating-linear-gradient(75deg,var(--frost) 0 4px,var(--gold) 4px 8px)}
+.candle:nth-child(7) .c-body{height:35px}
+
+.tier{position:relative;margin-top:2px;box-shadow:inset 0 -14px 22px rgba(92,22,56,.35),0 10px 24px rgba(0,0,0,.28)}
+.tier::before{content:'';position:absolute;top:0;left:0;right:0;height:15px;background:var(--frost);border-radius:10px 10px 0 0;z-index:2}
+.drips{position:absolute;top:14px;left:8px;right:8px;display:flex;justify-content:space-between;z-index:2}
+.drips i{width:15px;background:var(--frost);border-radius:0 0 9px 9px}
+.t1{width:168px;height:60px;background:linear-gradient(180deg,#e58ba2,#cd5c7b);border-radius:9px 9px 6px 6px;z-index:2}
+.t2{width:236px;height:72px;background:linear-gradient(180deg,#d97b93,#bb4e6e);border-radius:9px 9px 6px 6px;z-index:1;
+  display:grid;place-items:center}
+.t2 span{font-family:var(--script);font-size:1.9rem;color:#7c1f3f;margin-top:16px}
+.t3{width:302px;height:86px;background:linear-gradient(180deg,#c96a84,#a53d5d);border-radius:9px 9px 7px 7px}
+.plate{width:352px;height:24px;margin-top:4px;border-radius:50%;
+  background:linear-gradient(180deg,var(--gold-soft),#a87c33);box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.stand{width:64px;height:30px;margin-top:2px;background:linear-gradient(180deg,#caa14f,#8f6a2c);clip-path:polygon(12% 0,88% 0,72% 100%,28% 100%)}
+.stand-base{width:150px;height:12px;border-radius:50%;background:linear-gradient(180deg,var(--gold-soft),#96702e)}
+
+.instrucciones{margin:34px auto 0;max-width:520px;transition:opacity .6s,transform .6s}
+.instrucciones.fade{opacity:0;transform:translateY(-10px);pointer-events:none}
+.instrucciones p{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--cream)}
+.counter{margin-top:10px;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.counter b{color:var(--rose);font-size:1rem}
+.link-btn{margin-top:18px;background:none;border:none;color:var(--cream-soft);opacity:.7;font-size:.8rem;
+  letter-spacing:.14em;text-transform:uppercase;border-bottom:1px dotted var(--gold);padding-bottom:2px;transition:.3s}
+.link-btn:hover{opacity:1;color:var(--gold)}
+
+.hero-reveal{max-width:860px;margin:44px auto 0;opacity:0;transform:translateY(30px) scale(.98);transition:opacity 1s ease .2s,transform 1s cubic-bezier(.2,.7,.2,1) .2s;pointer-events:none}
+.hero-reveal.show{opacity:1;transform:none;pointer-events:auto}
+.hero-reveal .who{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold)}
+.scramble{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4.6vw,3.4rem);letter-spacing:.06em;margin:14px 0 2px;color:var(--cream)}
+.name-script{font-family:var(--script);font-size:clamp(3.4rem,10vw,7.2rem);line-height:1.05;color:var(--rose);
+  text-shadow:0 0 40px rgba(240,121,154,.35)}
+.name-serif{font-family:var(--serif);font-weight:300;text-transform:uppercase;letter-spacing:.42em;font-size:clamp(.85rem,2.2vw,1.4rem);color:var(--gold-soft);margin-top:6px}
+.hero-note{max-width:520px;margin:22px auto 0;color:var(--cream-soft);font-size:1.02rem}
+.scroll-cue{margin-top:44px;display:inline-flex;flex-direction:column;align-items:center;gap:8px;color:var(--gold);
+  font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;text-decoration:none}
+.scroll-cue i{width:1px;height:44px;background:linear-gradient(var(--gold),transparent);animation:drip 1.8s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(.2);transform-origin:top}60%{transform:scaleY(1)}100%{transform:scaleY(.2);transform-origin:bottom}}
+
+/* ============ SECCIÓN 2 · LA CUMPLEAÑERA ============ */
+#nombre .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:70px;align-items:center}
+.portrait{position:relative;transform:rotate(-2.5deg);background:var(--cream);padding:16px 16px 54px;
+  box-shadow:0 26px 60px rgba(0,0,0,.45);max-width:430px;margin:0 auto}
+.portrait::before,.portrait::after{content:'';position:absolute;width:96px;height:26px;background:rgba(227,180,95,.5);top:-12px}
+.portrait::before{left:-24px;transform:rotate(-38deg)}
+.portrait::after{right:-24px;transform:rotate(38deg)}
+.portrait .ph{overflow:hidden}
+.portrait figcaption{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-family:var(--script);font-size:1.7rem;color:#7c1f3f}
+.kb{overflow:hidden}
+.kb img{width:100%;height:100%;object-fit:cover;animation:kenburns 16s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.14) translate(-2%,2%)}}
+.lead{font-family:var(--serif);font-weight:340;font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.5;color:var(--cream);margin:20px 0}
+.lead em{color:var(--rose);font-style:italic}
+.firma{font-family:var(--script);font-size:2rem;color:var(--gold);margin-top:16px}
+.stats{display:flex;gap:0;margin-top:38px;border:1px solid rgba(227,180,95,.28);border-radius:14px;overflow:hidden}
+.stat{flex:1;padding:22px 14px;text-align:center;background:rgba(255,255,255,.02)}
+.stat+.stat{border-left:1px solid rgba(227,180,95,.28)}
+.stat b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.6rem);color:var(--gold)}
+.stat span{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-soft);opacity:.8}
+
+/* ============ SECCIÓN 3 · QUIZ ¿QUÉ ANIMAL SERÍAS? ============ */
+#historia{background:linear-gradient(180deg,transparent,rgba(92,22,56,.16),transparent)}
+.quiz{max-width:680px;margin:54px auto 0;background:rgba(24,5,18,.55);border:1px solid rgba(227,180,95,.18);
+  border-radius:20px;padding:48px 40px;min-height:380px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.quiz::before{content:'🐾';position:absolute;top:14px;right:22px;font-size:3rem;opacity:.09;transform:rotate(20deg)}
+.quiz-screen{text-align:center;animation:quizIn .5s cubic-bezier(.2,.7,.2,1)}
+.quiz-screen.hidden{display:none}
+@keyframes quizIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.quiz-emoji{font-size:3.2rem;letter-spacing:.2em;margin-bottom:18px}
+.quiz-tagline{max-width:440px;margin:0 auto;color:var(--cream-soft);font-size:1.02rem}
+.quiz-kicker{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:10px}
+.quiz-progress{display:flex;flex-direction:column;gap:8px;margin-bottom:26px}
+.quiz-progress span{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.quiz-bar{height:6px;border-radius:99px;background:rgba(246,232,212,.12);overflow:hidden}
+.quiz-bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--rose),var(--gold));transition:width .45s cubic-bezier(.2,.7,.2,1)}
+.quiz h3{font-family:var(--serif);font-weight:420;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.3;margin:0 auto 26px;max-width:520px}
+.quiz-opts{display:flex;flex-direction:column;gap:12px;max-width:440px;margin:0 auto}
+.quiz-opt{background:rgba(255,255,255,.03);border:1px solid rgba(227,180,95,.25);border-radius:14px;padding:15px 22px;
+  text-align:left;font-size:.98rem;color:var(--cream);transition:.25s;display:flex;align-items:center;gap:12px}
+.quiz-opt .e{font-size:1.35rem;flex-shrink:0}
+.quiz-opt:hover{border-color:var(--rose);background:rgba(240,121,154,.1);transform:translateX(6px)}
+.quiz-count{margin-top:22px;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-soft);opacity:.6}
+.quiz-btn-fill{background:var(--rose);border:0;color:var(--bg-deep);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  font-size:.76rem;padding:15px 36px;border-radius:999px;transition:.3s;margin-top:28px}
+.quiz-btn-fill:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 12px 30px rgba(240,121,154,.35)}
+.quiz-desc{max-width:500px;margin:14px auto 0;color:var(--cream-soft)}
+.quiz-quote{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--rose);max-width:480px;margin:20px auto 0;line-height:1.5}
+.quiz-score{margin-top:18px;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.quiz-end{margin-top:6px}
+@media(max-width:600px){.quiz{padding:36px 22px}}
+
+/* ============ SECCIÓN 4-5 · DOMINÓ DE CUMPLEAÑOS ============ */
+.dom{max-width:820px;margin:54px auto 0;background:rgba(24,5,18,.55);border:1px solid rgba(227,180,95,.18);
+  border-radius:20px;padding:40px 30px 30px;position:relative;overflow:hidden}
+.dom::before{content:'🀲';position:absolute;top:12px;right:20px;font-size:3rem;opacity:.09}
+.dom-screen{text-align:center;animation:quizIn .5s cubic-bezier(.2,.7,.2,1)}
+.dom-screen.hidden{display:none}
+.dom-emoji{font-size:2.4rem;letter-spacing:.25em;margin-bottom:16px}
+.dom-tagline{max-width:460px;margin:0 auto;color:var(--cream-soft);font-size:1rem}
+.dom-diff-title{margin-top:26px;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:800}
+.dom-diff{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.dom-diff-btn.hard{background:transparent;border:1px solid var(--rose);color:var(--rose)}
+.dom-diff-btn.hard:hover{background:var(--rose);color:var(--bg-deep)}
+.dom-status{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:16px}
+.dom-status b{color:var(--rose)}
+.dom-status #domTurno{color:var(--cream)}
+.dom-board{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;min-height:96px;padding:18px;border-radius:14px;
+  background:rgba(0,0,0,.25);border:1px dashed rgba(227,180,95,.25)}
+.dom-board:empty::after{content:'la mesa te espera…';margin:0 auto;font-family:var(--serif);font-style:italic;opacity:.5}
+.dtile{display:inline-flex;align-items:center;flex-shrink:0;background:var(--cream);border-radius:10px;padding:4px;
+  box-shadow:0 4px 10px rgba(0,0,0,.35);border:0;transition:transform .2s,box-shadow .2s}
+.dtile .h{width:44px;height:44px;display:grid;place-items:center;font-size:1.65rem}
+.dtile .h:first-child{border-right:2px solid #bfa88c}
+.dtile.vertical{flex-direction:column}
+.dtile.vertical .h:first-child{border-right:0;border-bottom:2px solid #bfa88c}
+.dtile.played{animation:tileIn .35s cubic-bezier(.2,.7,.2,1)}
+@keyframes tileIn{from{opacity:0;transform:scale(.6) rotate(-8deg)}to{opacity:1;transform:none}}
+.dom-hand{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px;min-height:60px}
+.dom-hand .dtile{cursor:default;opacity:.55;flex-direction:column;padding:5px 4px}
+.dom-hand .dtile .h{width:46px;height:46px;font-size:1.7rem}
+.dom-hand .dtile .h:first-child{border-right:0;border-bottom:2px solid #bfa88c}
+.dom-hand .dtile.ok{opacity:1;cursor:pointer;box-shadow:0 0 0 2px var(--rose),0 6px 14px rgba(0,0,0,.4)}
+.dom-hand .dtile.ok:hover{transform:translateY(-6px)}
+.dom-hint{margin-top:14px;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);opacity:.85}
+.dom-actions{margin-top:20px;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
+.dom-actions .quiz-btn-fill{margin-top:0}
+.dom-actions .quiz-btn-fill:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.dom-end-title{font-family:var(--script);font-size:clamp(2rem,5vw,3.2rem);color:var(--rose);margin:6px 0 10px}
+.dom-desc{max-width:460px;margin:0 auto;color:var(--cream-soft)}
+.dom-ends{display:inline-flex;align-items:center;gap:6px;background:rgba(227,180,95,.12);border:1px solid rgba(227,180,95,.3);
+  border-radius:999px;padding:4px 12px;font-size:1.05rem;letter-spacing:0}
+.dom-choice{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:12px;animation:quizIn .3s ease}
+.dom-choice.hidden,.dom-ends.hidden{display:none}
+.dom-choice button{background:rgba(240,121,154,.12);border:1px solid var(--rose);color:var(--cream);border-radius:999px;
+  padding:8px 20px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;transition:.25s}
+.dom-choice button:hover{background:var(--rose);color:var(--bg-deep)}
+@media(max-width:600px){.dom{padding:28px 14px 22px}.dtile .h{width:34px;height:34px;font-size:1.25rem}.dom-hand .dtile .h{width:36px;height:36px;font-size:1.3rem}}
+
+
+/* ============ SECCIÓN 7 · DESEO FINAL ============ */
+#deseo-final{text-align:center;padding-bottom:140px}
+.big-candle{display:inline-flex;flex-direction:column;align-items:center;background:none;border:0;margin:40px 0 8px}
+.big-candle .flame{width:26px;height:42px;margin-bottom:6px;box-shadow:0 0 26px 8px rgba(255,190,90,.6),0 0 80px 24px rgba(255,150,70,.25)}
+.big-candle .wick{height:9px;width:3px}
+.big-candle .c-body{width:22px;height:90px;border-radius:5px 5px 3px 3px}
+.big-candle.out .flame{display:none}
+.big-candle.out .wick::after{content:'';position:absolute;bottom:8px;left:-5px;width:13px;height:13px;border-radius:50%;
+  background:radial-gradient(circle,rgba(220,220,220,.8),transparent 70%);animation:smoke 2s ease-out forwards}
+.final-msg{opacity:0;transform:translateY(24px);transition:opacity 1s ease .3s,transform 1s cubic-bezier(.2,.7,.2,1) .3s}
+.final-msg.show{opacity:1;transform:none}
+.final-msg .script{font-family:var(--script);font-size:clamp(3rem,8vw,5.6rem);color:var(--rose);line-height:1.1}
+.final-msg p{max-width:520px;margin:18px auto 0;color:var(--cream-soft)}
+.again-btn{margin-top:30px;background:var(--rose);border:0;color:var(--bg-deep);font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;font-size:.74rem;padding:15px 34px;border-radius:999px;transition:.3s}
+.again-btn:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 12px 30px rgba(240,121,154,.35)}
+
+footer{position:relative;z-index:2;border-top:1px solid rgba(227,180,95,.2);padding:40px 26px;text-align:center}
+footer .mono{font-size:1.4rem}
+footer p{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cream-soft);opacity:.6;margin-top:12px}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:980px){
+  #nombre .grid{grid-template-columns:1fr;gap:50px}
+}
+@media(max-width:600px){
+  section{padding:80px 0}
+  .cake{transform:scale(.82)}
+  .candles{gap:10px}
+}
+/* Movimiento reducido */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+  .balloon{display:none}
+  .rv,.hero-reveal,.final-msg{opacity:1;transform:none}
+  .lm .lm-in{transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ INTRO GATE ═══════════ -->
+<div id="introGate" style="position:fixed;inset:0;z-index:200;background:#180512;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;padding:24px;transition:opacity .6s ease">
+  <div class="intro-media" style="max-width:min(720px,92vw);width:100%"></div>
+  <div class="intro-actions" id="introActions" style="display:none;gap:22px;flex-wrap:wrap;justify-content:center">
+    <button id="btnSi" style="background:#f0799a;border:0;color:#180512;font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:.8rem;padding:15px 46px;border-radius:999px;cursor:pointer;transition:.3s">Sí ♥</button>
+    <button id="btnNo" style="background:transparent;border:1px solid #e3b45f;color:#e3b45f;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.8rem;padding:15px 46px;border-radius:999px;cursor:pointer;transition:.3s">No</button>
+  </div>
+  <button id="btnReintentar" style="display:none;background:#e3b45f;border:0;color:#180512;font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:.8rem;padding:15px 46px;border-radius:999px;cursor:pointer;transition:.3s">Volver a elegir ↺</button>
+</div>
+
+<canvas id="confetti"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div id="balloons" aria-hidden="true"></div>
+
+<!-- BARRA -->
+<header class="topbar">
+  <div class="mono">M <b>♥</b> F</div>
+  <button class="music-btn" id="musicBtn" aria-pressed="false" title="Música de cumpleaños"><span class="knob"><span>🎵</span></span><span class="lbl">Música</span></button>
+</header>
+
+<!-- ═══════════ 1 · LA TORTA ═══════════ -->
+<section id="fiesta">
+  <span class="twinkle" style="top:18%;left:12%"></span>
+  <span class="twinkle" style="top:26%;right:14%;animation-delay:1.2s"></span>
+  <span class="twinkle" style="top:60%;left:8%;animation-delay:2s"></span>
+  <span class="twinkle" style="top:70%;right:10%;animation-delay:.6s"></span>
+  <span class="twinkle" style="top:40%;left:20%;animation-delay:2.8s"></span>
+
+  <p class="fiesta-kicker">Hay una celebración esperándote <span>✦</span> es para ti</p>
+
+  <div class="cake-stage">
+    <div class="cake-glow"></div>
+    <div class="cake">
+      <div class="candles" id="candles">
+        <button class="candle" aria-label="Soplar vela 1"><span class="flame"></span><span class="wick"></span><span class="c-body"></span></button>
+        <button class="candle" aria-label="Soplar vela 2"><span class="flame"></span><span class="wick"></span><span class="c-body"></span></button>
+        <button class="candle" aria-label="Soplar vela 3"><span class="flame"></span><span class="wick"></span><span class="c-body"></span></button>
+        <button class="candle" aria-label="Soplar vela 4"><span class="flame"></span><span class="wick"></span><span class="c-body"></span></button>
+        <button class="candle" aria-label="Soplar vela 5"><span class="flame"></span><span class="wick"></span><span class="c-body"></span></button>
+        <button class="candle" aria-label="Soplar vela 6"><span class="flame"></span><span class="wick"></span><span class="c-body"></span></button>
+        <button class="candle" aria-label="Soplar vela 7"><span class="flame"></span><span class="wick"></span><span class="c-body"></span></button>
+      </div>
+      <div class="tier t1"><div class="drips" data-drips="7"></div></div>
+      <!-- ✏️ EDITA: el mensaje del medio de la torta -->
+      <div class="tier t2"><div class="drips" data-drips="10"></div><span>Te amo</span></div>
+      <div class="tier t3"><div class="drips" data-drips="13"></div></div>
+      <div class="plate"></div>
+      <div class="stand"></div>
+      <div class="stand-base"></div>
+    </div>
+  </div>
+
+  <div class="instrucciones" id="instrucciones">
+    <p>Cada vela guarda un beso tuyo… sóplalas todas ✦ toca cada llama</p>
+    <div class="counter">Velas por apagar · <b id="velasLeft">7</b></div>
+    <button class="link-btn" id="soplarTodo">o soplarlas todas de un solo soplido →</button>
+  </div>
+
+  <div class="hero-reveal" id="heroReveal">
+    <p class="who">Hoy celebramos a la mujer de mi vida</p>
+    <h1 class="scramble" id="scrambleTitle" aria-label="¡Feliz cumpleaños!">¡FELIZ CUMPLEAÑOS!</h1>
+    <div class="name-script">María Fernanda</div>
+    <div class="name-serif">Fonseca Trujillo</div>
+    <p class="hero-note">Este pequeño rincón de internet es tuyo: lo hice para recordarte, una vez más, lo infinitamente amada que eres. Baja despacio, hay más sorpresas. ♥</p>
+    <a class="scroll-cue" href="#nombre">Continúa <i></i></a>
+  </div>
+</section>
+
+<!-- ═══════════ 2 · LA CUMPLEAÑERA ═══════════ -->
+<section id="nombre">
+  <div class="wrap grid">
+    <figure class="portrait rv">
+      <div class="ph kb">
+        <img src="1.jpeg" alt="María Fernanda">
+      </div>
+      <figcaption>La cumpleañera ♥</figcaption>
+    </figure>
+    <div>
+      <span class="kicker rv">Para ti, amor mío</span>
+      <h2 class="sec rv" style="--d:.1s">
+        <span class="lm"><span class="lm-in">La mujer que hace</span></span>
+        <span class="lm" style="--d:.15s"><span class="lm-in">bonito <em>todos</em> mis días</span></span>
+      </h2>
+      <!-- ✏️ EDITA: tu carta personal para ella -->
+      <p class="lead rv" style="--d:.2s">María Fernanda: hoy el mundo celebra que existes, y yo celebro algo todavía mejor — que <em>existas conmigo</em>. Tu risa es mi canción favorita, tu abrazo mi lugar seguro, y tu amor el regalo que nunca dejo de desenvolver.</p>
+      <p class="firma rv" style="--d:.3s">— con todo mi amor, tu esposo</p>
+      <div class="stats rv" style="--d:.35s">
+        <div class="stat"><b class="count" data-to="365">0</b><span>nuevas razones cada año</span></div>
+        <div class="stat"><b class="count" data-to="8760">0</b><span>horas amándote este año</span></div>
+        <div class="stat"><b>∞</b><span>besos por darte</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 3 · QUIZ: ¿QUÉ ANIMAL SERÍAS? ═══════════ -->
+<section id="historia">
+  <div class="wrap">
+    <div style="text-align:center;max-width:760px;margin:0 auto">
+      <span class="kicker rv" style="justify-content:center">Mini juego · solo para ti</span>
+      <h2 class="sec rv" style="--d:.1s">Si fueras un animal, <em>¿cuál serías?</em></h2>
+      <p class="sub rv" style="--d:.15s;margin:0 auto;font-style:italic">Seis preguntas. Cero trampa (casi). Un resultado científicamente romántico. 🐾</p>
+    </div>
+
+    <div class="quiz rv" style="--d:.25s">
+      <div class="quiz-screen" id="quizStart">
+        <div class="quiz-emoji" aria-hidden="true">🐶 🐱 🐰 🦜</div>
+        <p class="quiz-tagline">Sabes que no puedes ver un animalito sin derretirte. Ahora vamos a descubrir cuál llevas dentro.</p>
+        <button class="quiz-btn-fill" id="quizBegin">Empezar el test →</button>
+      </div>
+
+      <div class="quiz-screen hidden" id="quizPlay">
+        <div class="quiz-progress"><span id="quizStep">Pregunta 1 de 6</span><div class="quiz-bar"><i id="quizFill"></i></div></div>
+        <h3 id="quizQ"></h3>
+        <div class="quiz-opts" id="quizOpts"></div>
+        <p class="quiz-count">0 / 6</p>
+      </div>
+
+      <div class="quiz-screen hidden" id="quizResult">
+        <div class="quiz-emoji" id="resEmoji">🐶</div>
+        <p class="quiz-kicker">Los resultados dicen…</p>
+        <h3 id="resName"></h3>
+        <p class="quiz-desc" id="resDesc"></p>
+        <p class="quiz-quote" id="resQuote"></p>
+        <div class="quiz-score" id="resScore"></div>
+        <div class="quiz-end">
+          <button class="quiz-btn-fill" id="quizReiniciar">Hacerlo otra vez ↺</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 4-5 · DOMINÓ DE CUMPLEAÑOS ═══════════ -->
+<section id="domino">
+  <div class="wrap">
+    <div style="text-align:center;max-width:760px;margin:0 auto">
+      <span class="kicker rv" style="justify-content:center">Gran desafío · edición cumpleaños</span>
+      <h2 class="sec rv" style="--d:.1s">Dominó <em>animalero</em></h2>
+      <p class="sub rv" style="--d:.15s;margin:0 auto">El clásico dominó del 0 al 6, pero con animalitos y confeti. Te reto, María Fernanda. 🐾🎂</p>
+    </div>
+
+    <div class="dom rv" style="--d:.25s">
+      <!-- Inicio / dificultad -->
+      <div class="dom-screen" id="domStart">
+        <div class="dom-emoji" aria-hidden="true">🎂🎈 🎈🐶 🐶🐱 🐱🐰</div>
+        <p class="dom-tagline">Reglas rápidas: 7 fichas para ti, 7 para mí. Empata los extremos, roba si no puedes… y vacía tu mano para ganar.</p>
+        <p class="dom-diff-title">Elige la dificultad:</p>
+        <div class="dom-diff">
+          <button class="quiz-btn-fill dom-diff-btn" data-diff="easy">🌼 Fácil · jugamos suavecito</button>
+          <button class="quiz-btn-fill dom-diff-btn hard" data-diff="hard">🧠 Difícil · no me dejaré ganar</button>
+        </div>
+      </div>
+
+      <!-- Juego -->
+      <div class="dom-screen hidden" id="domPlay">
+        <div class="dom-status">
+          <span id="domTurno">Tu turno ♥</span>
+          <span class="dom-pozo">Pozo: <b id="domPozoCount">14</b> fichas</span>
+          <span class="dom-pozo">Tu mano: <b id="domHandCount">7</b></span>
+          <span class="dom-ends hidden" id="domEnds" title="Extremos abiertos"></span>
+        </div>
+        <div class="dom-board" id="domBoard" aria-label="Mesa de dominó"></div>
+        <p class="dom-hint" id="domHint">Toca una ficha brillante para jugarla</p>
+        <div class="dom-choice hidden" id="domChoice">
+          <span style="font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)">¿Por qué extremo?</span>
+          <button id="domChoiceL">← Izquierda</button>
+          <button id="domChoiceR">Derecha →</button>
+          <button id="domChoiceX" style="border-color:rgba(246,232,212,.3);background:transparent">Cancelar</button>
+        </div>
+        <div class="dom-hand" id="domHand"></div>
+        <div class="dom-actions">
+          <button class="quiz-btn-fill" id="domDraw" disabled>Robar ficha 🎁</button>
+          <button class="link-btn" id="domRestartMini">reiniciar partida</button>
+        </div>
+      </div>
+
+      <!-- Resultado -->
+      <div class="dom-screen hidden" id="domEnd">
+        <div class="dom-emoji" id="domEndEmoji">🏆</div>
+        <h3 class="dom-end-title" id="domEndTitle"></h3>
+        <p class="dom-desc" id="domEndMsg"></p>
+        <div class="dom-actions">
+          <button class="quiz-btn-fill" id="domAgain">Jugar otra vez ↺</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ 7 · DESEO FINAL ═══════════ -->
+<section id="deseo-final">
+  <div class="wrap">
+    <span class="kicker rv" style="justify-content:center">Última sorpresa</span>
+    <h2 class="sec rv" style="--d:.1s">Pide un <em>deseo</em></h2>
+    <p class="sub rv" style="--d:.15s;margin:0 auto">Cierra los ojos, piensa en algo hermoso… y toca la llama.</p>
+
+    <button class="big-candle rv" id="velaFinal" style="--d:.2s" aria-label="Apagar la vela y pedir un deseo">
+      <span class="flame"></span><span class="wick"></span><span class="c-body" style="background:repeating-linear-gradient(75deg,var(--frost) 0 6px,var(--rose) 6px 12px)"></span>
+    </button>
+
+    <div class="final-msg" id="finalMsg">
+      <div class="script">Te amo, María Fernanda</div>
+      <p>Hoy, mañana y todos los cumpleaños que vengan. Tu deseo ya está en camino — y yo me encargo de que se cumpla.</p>
+      <button class="again-btn" id="masConfeti">¡Más confeti! 🎉</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="mono">Feliz cumple, amor <b>♥</b></div>
+  <p>Que cumplas muchos más · Te ama tu esposo</p>
+</footer>
+
+<script>
+(function(){
+'use strict';
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- INTRO GATE ---------- */
+(function introFlow(){
+  const gate    = document.getElementById('introGate');
+  const media   = gate.querySelector('.intro-media');
+  const actions = document.getElementById('introActions');
+  const btnSi   = document.getElementById('btnSi');
+  const btnNo   = document.getElementById('btnNo');
+  const btnBack = document.getElementById('btnReintentar');
+
+  const makeVideo = src => {
+    const v = document.createElement('video');
+    v.src = src; v.controls = false; v.preload = 'auto'; v.playsInline = true;
+    v.style.cssText = 'width:100%;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.5)';
+    return v;
+  };
+  const showChoice = () => { actions.style.display = 'flex'; };
+  const hideAll = () => { actions.style.display = 'none'; btnBack.style.display = 'none'; media.innerHTML = ''; };
+
+  // Paso 1: video intro; al terminar aparece la elección Sí/No
+  const intro = makeVideo('video intro.mp4');
+  media.appendChild(intro);
+  intro.play().catch(() => { intro.controls = true; }); // fallback si el autoplay se bloquea
+  intro.addEventListener('ended', showChoice);
+
+  // Sí → video 1.mp4, y al terminar se abre la web principal
+  btnSi.addEventListener('click', () => {
+    hideAll();
+    const yes = makeVideo('1.mp4');
+    media.appendChild(yes);
+    yes.play().catch(() => { yes.controls = true; });
+    yes.addEventListener('ended', () => {
+      gate.style.opacity = '0';
+      gate.style.pointerEvents = 'none';
+      setTimeout(() => gate.remove(), 700);
+    });
+  });
+
+  // No → imagen 2.png + botón para volver a elegir
+  btnNo.addEventListener('click', () => {
+    hideAll();
+    const img = document.createElement('img');
+    img.src = '2.png'; img.alt = 'Vuelve a elegir';
+    img.style.cssText = 'width:100%;max-height:62vh;object-fit:contain;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.5)';
+    media.appendChild(img);
+    btnBack.style.display = 'inline-block';
+  });
+
+  // Volver a elegir
+  btnBack.addEventListener('click', () => {
+    btnBack.style.display = 'none';
+    media.innerHTML = '';
+    showChoice();
+  });
+})();
+const $  = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+/* ---------- CONFETI ---------- */
+const cvs = $('#confetti'), ctx = cvs.getContext('2d');
+let W, H, parts = [], running = false;
+const COLORS = ['#e3b45f','#f2d79a','#f0799a','#b83a5e','#f6e8d4','#ff9d4d'];
+function resize(){ W = cvs.width = innerWidth; H = cvs.height = innerHeight; }
+addEventListener('resize', resize); resize();
+
+function burst(x, y, n = 90){
+  if (REDUCED) return;
+  for (let i = 0; i < n; i++){
+    const a = Math.random() * Math.PI * 2, sp = 3 + Math.random() * 9;
+    parts.push({ x, y, vx: Math.cos(a)*sp, vy: Math.sin(a)*sp - 3,
+      w: 5 + Math.random()*6, h: 3 + Math.random()*5,
+      c: COLORS[(Math.random()*COLORS.length)|0],
+      r: Math.random()*Math.PI, vr: (Math.random()-.5)*.3,
+      life: 90 + Math.random()*70 });
+  }
+  if (!running){ running = true; loop(); }
+}
+function loop(){
+  ctx.clearRect(0,0,W,H);
+  parts = parts.filter(p => p.life > 0 && p.y < H + 40);
+  for (const p of parts){
+    p.vy += .14; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr; p.life--;
+    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.r);
+    ctx.globalAlpha = Math.min(1, p.life/40);
+    ctx.fillStyle = p.c; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); ctx.restore();
+  }
+  if (parts.length) requestAnimationFrame(loop);
+  else { running = false; ctx.clearRect(0,0,W,H); }
+}
+function fireworks(){
+  burst(W*.5, H*.3, 130);
+  setTimeout(()=>burst(W*.18, H*.45, 80), 260);
+  setTimeout(()=>burst(W*.82, H*.45, 80), 480);
+}
+
+/* ---------- AUDIO (música + efectos) ---------- */
+let actx = null, master = null, musicOn = false, melodyTimer = null;
+const FREQ = {G4:392, A4:440, B4:493.88, C5:523.25, D5:587.33, E5:659.25, F5:698.46, G5:784};
+const TEMPO = .42;
+const MELODY = [ ['G4',.75],['G4',.25],['A4',1],['G4',1],['C5',1],['B4',2],
+  ['G4',.75],['G4',.25],['A4',1],['G4',1],['D5',1],['C5',2],
+  ['G4',.75],['G4',.25],['G5',1],['E5',1],['C5',1],['B4',1],['A4',2],
+  ['F5',.75],['F5',.25],['E5',1],['C5',1],['D5',1],['C5',2.5] ];
+
+function ensureAudio(){
+  if (actx) return;
+  actx = new (window.AudioContext || window.webkitAudioContext)();
+  master = actx.createGain(); master.gain.value = .14; master.connect(actx.destination);
+}
+function note(freq, when, dur, vol = .9){
+  const o = actx.createOscillator(), o2 = actx.createOscillator(), g = actx.createGain();
+  o.type = 'sine'; o.frequency.value = freq;
+  o2.type = 'sine'; o2.frequency.value = freq * 2;
+  const g2 = actx.createGain(); g2.gain.value = .18;
+  o.connect(g); o2.connect(g2); g2.connect(g); g.connect(master);
+  g.gain.setValueAtTime(0, when);
+  g.gain.linearRampToValueAtTime(vol * .22, when + .015);
+  g.gain.exponentialRampToValueAtTime(.0001, when + Math.max(dur * .95, .3));
+  o.start(when); o2.start(when); o.stop(when + dur + .4); o2.stop(when + dur + .4);
+}
+function scheduleMelody(){
+  const start = actx.currentTime + .08; let t = start, beats = 0;
+  for (const [n, b] of MELODY){ note(FREQ[n], t, b * TEMPO); t += b * TEMPO; beats += b; }
+  melodyTimer = setTimeout(scheduleMelody, (beats * TEMPO - 2) * 1000);
+}
+$('#musicBtn').addEventListener('click', function(){
+  ensureAudio(); actx.resume();
+  musicOn = !musicOn;
+  this.classList.toggle('playing', musicOn);
+  this.setAttribute('aria-pressed', musicOn);
+  if (musicOn){ master.gain.value = .14; scheduleMelody(); }
+  else { clearTimeout(melodyTimer); master.gain.value = 0; }
+});
+function puff(){
+  if (!actx) return;
+  const o = actx.createOscillator(), g = actx.createGain(), t = actx.currentTime;
+  o.type = 'triangle'; o.frequency.setValueAtTime(520, t);
+  o.frequency.exponentialRampToValueAtTime(90, t + .22);
+  g.gain.setValueAtTime(.08, t); g.gain.exponentialRampToValueAtTime(.0001, t + .25);
+  o.connect(g); g.connect(master); o.start(t); o.stop(t + .3);
+}
+function chime(){
+  if (!actx) return;
+  const t = actx.currentTime;
+  [784, 988, 1175, 1568].forEach((f, i) => note(f, t + i * .09, .5, .7));
+}
+
+/* ---------- VELAS DE LA TORTA ---------- */
+const candles = $$('.candle'), TOTAL = candles.length;
+let blown = 0, celebrated = false;
+function blow(c){
+  if (c.classList.contains('out')) return;
+  c.classList.add('out'); blown++; puff();
+  $('#velasLeft').textContent = TOTAL - blown;
+  if (blown === TOTAL) celebrate();
+}
+candles.forEach(c => c.addEventListener('click', () => blow(c)));
+$('#soplarTodo').addEventListener('click', () => {
+  candles.forEach((c, i) => setTimeout(() => blow(c), i * 130));
+});
+function scramble(el, final, dur = 1300){
+  if (REDUCED){ el.textContent = final; return; }
+  const chars = 'AEIOUSZR♥✦★*%#';
+  const start = performance.now();
+  (function frame(now){
+    const p = Math.min(1, (now - start) / dur);
+    const reveal = Math.floor(p * final.length);
+    let out = '';
+    for (let i = 0; i < final.length; i++){
+      out += (i < reveal || final[i] === ' ') ? final[i] : chars[(Math.random()*chars.length)|0];
+    }
+    el.textContent = out;
+    if (p < 1) requestAnimationFrame(frame); else el.textContent = final;
+  })(start);
+}
+function celebrate(){
+  if (celebrated) return; celebrated = true;
+  ensureAudio(); if (actx.state === 'suspended') actx.resume();
+  $('#instrucciones').classList.add('fade');
+  $('#heroReveal').classList.add('show');
+  scramble($('#scrambleTitle'), '¡FELIZ CUMPLEAÑOS!', 1500);
+  chime();
+  burst(W*.5, H*.3, 150);
+  setTimeout(() => burst(W*.15, H*.55, 80), 280);
+  setTimeout(() => burst(W*.85, H*.55, 80), 500);
+}
+
+/* ---------- GOTEO DE FROSTING ---------- */
+$$('.drips').forEach(d => {
+  const n = +d.dataset.drips;
+  for (let i = 0; i < n; i++){
+    const s = document.createElement('i');
+    s.style.height = (9 + Math.random() * 10) + 'px';
+    d.appendChild(s);
+  }
+});
+
+/* ---------- GLOBOS ---------- */
+if (!REDUCED){
+  const box = $('#balloons');
+  const skins = [['#f0799a','#c94f74'],['#e3b45f','#c48d3a'],['#f6e8d4','#d9b98e'],['#b83a5e','#8c2743'],['#f2d79a','#cfa14e']];
+  for (let i = 0; i < 9; i++){
+    const b = document.createElement('div'); b.className = 'balloon';
+    const [c1, c2] = skins[i % skins.length];
+    b.style.left = (4 + Math.random() * 92) + 'vw';
+    b.style.setProperty('--dur', (20 + Math.random() * 16) + 's');
+    b.style.setProperty('--delay', (-Math.random() * 30) + 's');
+    b.style.transform = `scale(${.7 + Math.random() * .6})`;
+    b.innerHTML = `<div class="b-sway" style="animation-delay:${-Math.random()*3}s">
+      <div class="b-body" style="background:radial-gradient(circle at 35% 30%, ${c1}, ${c2});--knot:${c2}"></div>
+      <div class="b-string"></div></div>`;
+    box.appendChild(b);
+  }
+}
+
+/* ---------- REVEALS AL SCROLL ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .16 });
+$$('.rv').forEach(el => io.observe(el));
+
+/* ---------- CONTADORES ---------- */
+const cio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return; cio.unobserve(e.target);
+  const el = e.target, to = +el.dataset.to, t0 = performance.now(), dur = 1600;
+  (function step(now){
+    const p = Math.min(1, (now - t0) / dur), ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(to * ease).toLocaleString('es');
+    if (p < 1) requestAnimationFrame(step);
+  })(t0);
+}), { threshold: .6 });
+$$('.count').forEach(el => cio.observe(el));
+
+/* ---------- QUIZ: ¿QUÉ ANIMAL SERÍAS? ---------- */
+(function(){
+  const QUESTIONS = [
+    { q: 'Vas caminando por la calle y ves un perrito desconocido. ¿Qué haces?',
+      o: [
+        ['🐶', 'Me acerco y lo saludo como si fuera un viejo amigo', 'perro'],
+        ['📸', 'Le tomo fotos primero, cariños después', 'conejo'],
+        ['👀', 'Me quedo viéndolo con emoción desde lejos', 'gato'],
+        ['📢', 'Aviso a medio mundo para que además lo mimen', 'loro']] },
+    { q: 'Tu plan perfecto de domingo es…',
+      o: [
+        ['🛋️', 'Pijama, cobija y siestas largas en el sofá', 'gato'],
+        ['🌳', 'Salir al parque y correr con energía infinita', 'perro'],
+        ['🥗', 'Picnic tranquila con cosas ricas caseras', 'conejo'],
+        ['🎤', 'Reunir a todo el mundo para hablar y reír sin parar', 'loro']] },
+    { q: 'Cuando alguien que amas está triste, tú…',
+      o: [
+        ['🫂', 'Te pegas a su lado hasta que se le pase pase lo que pase', 'perro'],
+        ['🎁', 'Apareces en silencio con su comida favorita', 'gato'],
+        ['☕', 'Preparas algo dulce y escuchas con atención', 'conejo'],
+        ['💡', 'Le alegras el día con anécdotas, chistes y planes', 'loro']] },
+    { q: '¿Cuál es tu superpoder social en las reuniones?',
+      o: [
+        ['🗣️', 'Hablas con todo el mundo y animas la fiesta', 'loro'],
+        ['🤝', 'Eres la mejor amiga de todos: fiel y presente', 'perro'],
+        ['🧐', 'Te haces una observadora selectiva y misteriosa', 'gato'],
+        ['🥕', 'Te llevas bien con todos sin ningún esfuerzo', 'conejo']] },
+    { q: 'Elige un lugar para un cumpleaños ideal:',
+      o: [
+        ['🏡', 'En casa, abajo de las mantas, con pocas personas', 'gato'],
+        ['🌊', 'Aire libre, aventura y que el sol queme a todos', 'perro'],
+        ['🌷', 'Un jardín bonito con flores y brisa', 'conejo'],
+        ['🌈', 'Una fiesta grande, colorida y llena de música', 'loro']] },
+    { q: '¿Qué frase te define mejor?',
+      o: [
+        ['❤️', '«Te cuido con todo lo que soy»', 'perro'],
+        ['🌙', '«Independiente, pero siempre vuelvo a ti»', 'gato'],
+        ['🌸', '«Lo pequeño y suave también es fuerza»', 'conejo'],
+        ['🎵', '«La vida es mejor diciéndola en voz alta»', 'loro']] }
+  ];
+  const RESULTS = {
+    perro:  { e: '🐶', name: 'Serías un perrito', desc: 'Leal hasta los huesos, de corazón gigante y celebrador profesional de existencias. Tu forma de amar no tiene matices: o todo, o todo.',
+      quote: '«Al igual que un perrito, el mundo se siente más seguro cuando tú llegas. Mi lugar favorito siempre va a estar a tu lado.»' },
+    gato:   { e: '🐱', name: 'Serías un gatito', desc: 'Independiente, elegante, de cariño selectivo y total. Cuando tú amas, se nota: el sol parece calentar solo para ti.',
+      quote: '«Tienes ese amor de gato: no se presiona, no se fuerza; simplemente se elige todos los días. Y yo me siento el humano más afortunado.»' },
+    conejo: { e: '🐰', name: 'Serías un conejito', desc: 'Dulzura inmensa, nervios bonitos y un corazón tierno que convierte cualquier espacio pequeño en un hogar.',
+      quote: '«Eres ese tipo de persona que hace suave la vida: tierna en lo pequeño, valiente en lo importante. Mi parte favorita del día sigue siendo verte.»' },
+    loro:   { e: '🦜', name: 'Serías un loro', desc: 'Colorido, alegre y capaz de llenar de historia cualquier sala. Tu risa es la banda sonora favorita de quienes te quieren.',
+      quote: '«Contigo hasta el silencio suena bonito, pero es tu voz la que convierte los días normales en fiesta. Gracias por quedarte a cantar mi vida.»' }
+  };
+  const scr   = { start: $('#quizStart'), play: $('#quizPlay'), result: $('#quizResult') };
+  const total = QUESTIONS.length;
+  let idx = 0, points = {};
+
+  function screen(k){
+    for (const key in scr) scr[key].classList.toggle('hidden', key !== k);
+  }
+  function renderQuestion(){
+    const q = QUESTIONS[idx];
+    $('#quizStep').textContent = `Pregunta ${idx + 1} de ${total}`;
+    $('#quizFill').style.width = ((idx / total) * 100) + '%';
+    $('#quizQ').textContent = q.q;
+    const box = $('#quizOpts'); box.innerHTML = '';
+    q.o.forEach(([emoji, text, animal]) => {
+      const b = document.createElement('button');
+      b.className = 'quiz-opt';
+      b.innerHTML = `<span class="e">${emoji}</span><span>${text}</span>`;
+      b.addEventListener('click', () => {
+        points[animal] = (points[animal] || 0) + 1;
+        idx++;
+        $('.quiz-count').textContent = `${idx} / ${total}`;
+        if (idx < total) renderQuestion(); else showResult();
+      });
+      box.appendChild(b);
+    });
+    $('.quiz-count').textContent = `${idx} / ${total}`;
+  }
+  function showResult(){
+    const winner = Object.entries(points).sort((a, b) => b[1] - a[1])[0][0];
+    const r = RESULTS[winner];
+    $('#resEmoji').textContent = r.e;
+    $('#resName').textContent = r.name;
+    $('#resDesc').textContent = r.desc;
+    $('#resQuote').textContent = r.quote;
+    $('#resScore').textContent = 'Resultado oficial del corazón de ' + r.name.split(' ')[2] + ' ✦';
+    $('#quizFill').style.width = '100%';
+    screen('result');
+    chime();
+    if (!REDUCED){
+      burst(W * .5, H * .4, 90);
+      setTimeout(() => burst(W * .2, H * .5, 60), 300);
+      setTimeout(() => burst(W * .8, H * .5, 60), 500);
+    }
+  }
+  $('#quizBegin').addEventListener('click', () => { idx = 0; points = {}; screen('play'); renderQuestion(); ensureAudio(); });
+  $('#quizReiniciar').addEventListener('click', () => { screen('start'); });
+})();
+
+/* ---------- DOMINÓ DE CUMPLEAÑOS (0–6, 28 fichas) ---------- */
+(function(){
+  const EMOJI = ['🎂','🎈','🎁','🐶','🐱','🐰','🦜'];
+
+  // Set doble-seis completo: 28 fichas únicas [i,j] con i<=j
+  function buildSet(){
+    const set = [];
+    for (let i = 0; i <= 6; i++) for (let j = i; j <= 6; j++) set.push([i, j]);
+    return set; // 7+6+5+4+3+2+1 = 28
+  }
+  function shuffle(a){
+    for (let i = a.length - 1; i > 0; i--){
+      const j = (Math.random() * (i + 1)) | 0;
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+  const pips = t => t[0] + t[1];
+  // Jugadas legales: [{t, end:'L'|'R'}]; mesa vacía → cualquiera
+  function legalMoves(hand, chain){
+    if (!chain.length) return hand.map(t => ({ t, end: 'R' }));
+    const L = chain[0][0], R = chain[chain.length - 1][1]; // [l,r] orientados
+    const out = [];
+    for (const t of hand){
+      const mL = t.includes(L), mR = t.includes(R);
+      if (mL && mR && L === R) out.push({ t, end: 'R' });
+      else { if (mL) out.push({ t, end: 'L' }); if (mR) out.push({ t, end: 'R' }); }
+    }
+    return out;
+  }
+  function orient(t, end, chain){
+    if (!chain.length) return t;
+    if (end === 'L'){
+      const L = chain[0][0];
+      return t[1] === L ? t : [t[1], t[0]]; // t[1] encaja con L
+    }
+    const R = chain[chain.length - 1][1];
+    return t[0] === R ? t : [t[1], t[0]];
+  }
+  function placeMove(chain, move){
+    const o = orient(move.t, move.end, chain);
+    if (move.end === 'L') chain.unshift(o); else chain.push(o);
+  }
+  // IA difícil: suelta puntos altos y dobles, bloquea dejando extremos escasos en lo que el rival podría tener;
+  // IA fácil: aleatoria con jugadas ocasionalmente ingenuas (menos agresiva)
+  function aiPick(hand, chain, unknownCounts){
+    const moves = legalMoves(hand, chain);
+    if (!moves.length) return null;
+    if (diff === 'easy'){
+      // fácil (jugamos suavecito): siempre suelta su ficha más pequeña; no planea ni bloquea
+      let m = moves[0];
+      for (const mv of moves) if (pips(mv.t) < pips(m.t)) m = mv;
+      return m;
+    }
+    let best = null, bestScore = -Infinity;
+    for (const m of moves){
+      const o = orient(m.t, m.end, chain);
+      const exposed = chain.length ? (m.end === 'L' ? o[0] : o[1]) : null;
+      let s = pips(m.t);
+      if (m.t[0] === m.t[1]) s += 6;            // los dobles bloquean y puntúan
+      if (exposed !== null) s += 3 * (7 - (unknownCounts[exposed] || 0)); // deja extremo que el rival probablemente no tiene
+      if (s > bestScore){ bestScore = s; best = m; }
+    }
+    return best;
+  }
+
+  // ---------- Estado ----------
+  const scr = { start: $('#domStart'), play: $('#domPlay'), end: $('#domEnd') };
+  let diff = 'easy', hand = [], ai = [], pool = [], chain = [], over = false;
+
+  const screen = k => { for (const key in scr) scr[key].classList.toggle('hidden', key !== k); };
+  const tileEl = (t, vertical) => {
+    const el = document.createElement('button');
+    el.type = 'button'; el.className = 'dtile' + (vertical ? ' vertical' : ''); el.setAttribute('aria-label', `Ficha ${t[0]}-${t[1]}`);
+    el.innerHTML = `<span class="h">${EMOJI[t[0]]}</span><span class="h">${EMOJI[t[1]]}</span>`;
+    return el;
+  };
+
+  let pendingTile = null;
+  const choiceBox = () => $('#domChoice');
+  function hideChoice(){ pendingTile = null; choiceBox().classList.add('hidden'); }
+  function showChoice(tile){
+    pendingTile = tile;
+    choiceBox().classList.remove('hidden');
+    $('#domHint').textContent = `La ficha ${EMOJI[tile[0]]}${EMOJI[tile[1]]} encaja en ambos extremos`;
+  }
+
+  function render(){
+    const board = $('#domBoard'); board.innerHTML = '';
+    chain.forEach(t => board.appendChild(tileEl(t, t[0] === t[1]))); // dobles en vertical
+    if (board.lastChild) board.lastChild.classList.add('played');
+    const ends = $('#domEnds');
+    if (chain.length){
+      ends.textContent = `◀ ${EMOJI[chain[0][0]]}  ·  ${EMOJI[chain[chain.length - 1][1]]} ▶`;
+      ends.classList.remove('hidden');
+    } else ends.classList.add('hidden');
+    const handBox = $('#domHand'); handBox.innerHTML = '';
+    const myMoves = legalMoves(hand, chain);
+    hand.forEach(t => {
+      const el = tileEl(t);
+      const playable = !over && myMoves.some(m => m.t === t);
+      if (playable){
+        el.classList.add('ok');
+        el.addEventListener('click', () => playHuman(t));
+      }
+      handBox.appendChild(el);
+    });
+    $('#domHandCount').textContent = hand.length;
+    $('#domPozoCount').textContent = pool.length;
+    const stuck = !myMoves.length && !over;
+    if (stuck || over) hideChoice();
+    const drawBtn = $('#domDraw');
+    drawBtn.disabled = !stuck;
+    drawBtn.textContent = pool.length ? 'Robar ficha 🎁' : 'Pasar 😴';
+    if (!pendingTile) $('#domHint').textContent = stuck
+      ? (pool.length ? 'Sin jugada: roba del pozo' : 'Sin jugada y sin pozo: debes pasar')
+      : 'Toca una ficha brillante para jugarla';
+  }
+
+  function say(turn){ $('#domTurno').textContent = turn; }
+
+  function unknownForAI(){ // valores que la IA no ve: pozo + mano de María
+    const c = [0,0,0,0,0,0,0];
+    for (const t of pool){ c[t[0]]++; c[t[1]]++; }
+    for (const t of hand){ c[t[0]]++; c[t[1]]++; }
+    return c;
+  }
+
+  function endCheck(passer){
+    if (!hand.length) return finish('maria');
+    if (!ai.length) return finish('ia');
+    if (passer === 'both'){ // tranca: gana quien tenga menos puntos en mano
+      const hp = hand.reduce((s, t) => s + pips(t), 0);
+      const ap = ai.reduce((s, t) => s + pips(t), 0);
+      return finish(hp <= ap ? 'maria' : 'ia', hp, ap);
+    }
+    return false;
+  }
+
+  function finish(winner, hp, ap){
+    over = true;
+    const msg = $('#domEndMsg'), title = $('#domEndTitle'), emoji = $('#domEndEmoji');
+    if (winner === 'maria'){
+      emoji.textContent = '🏆';
+      title.textContent = '¡Ganaste, mi amor!';
+      msg.textContent = hp === undefined
+        ? 'Te quedaste sin fichas primero. Eres la mejor maestra dominó, te amo ♥'
+        : `Tranca: tú ${hp} puntos, yo ${ap}. Eres la mejor maestra dominó, te amo ♥`;
+      setTimeout(() => { screen('end'); chime(); if (!REDUCED){ burst(W * .5, H * .4, 120); setTimeout(() => burst(W * .2, H * .5, 70), 300); setTimeout(() => burst(W * .8, H * .5, 70), 550); } }, 600);
+    } else {
+      emoji.textContent = '😏';
+      title.textContent = 'Gané… esta vez';
+      msg.textContent = hp === undefined
+        ? 'Me quedé sin fichas primero. Empiezo a sospechar que te dejaste… revancha, ¿sí? ♥'
+        : `Tranca: tú ${hp} puntos, yo ${ap}. Revancha inmediata, ¿sí? ♥`;
+      setTimeout(() => screen('end'), 600);
+    }
+    return true;
+  }
+
+  function playHuman(tile, end){
+    if (over) return;
+    const opts = legalMoves(hand, chain).filter(mv => mv.t === tile);
+    if (!opts.length) return;
+    if (opts.length > 1 && !end){ showChoice(tile); return; } // encaja en ambos: que elija
+    const m = end ? (opts.find(o => o.end === end) || opts[0]) : opts[0];
+    hideChoice();
+    hand = hand.filter(t => t !== m.t);
+    placeMove(chain, m);
+    say('Turno de tu esposo 🤫');
+    if (!endCheck()) setTimeout(aiTurn, 650);
+    render();
+  }
+
+  $('#domChoiceL').addEventListener('click', () => { if (pendingTile) playHuman(pendingTile, 'L'); });
+  $('#domChoiceR').addEventListener('click', () => { if (pendingTile) playHuman(pendingTile, 'R'); });
+  $('#domChoiceX').addEventListener('click', () => { hideChoice(); render(); });
+
+  function aiTurn(){
+    if (over) return;
+    let m = aiPick(ai, chain, unknownForAI());
+    while (!m && pool.length){ ai.push(pool.pop()); m = aiPick(ai, chain, unknownForAI()); }
+    if (!m){
+      say('Pasé. Tu turno ♥');
+      if (!legalMoves(hand, chain).length && !pool.length) endCheck('both');
+      render();
+      return;
+    }
+    ai = ai.filter(t => t !== m.t);
+    placeMove(chain, m);
+    say('Tu turno ♥');
+    if (!endCheck()) render(); else render();
+  }
+
+  function resetGame(){
+    const set = shuffle(buildSet());
+    hand = set.slice(0, 7); ai = set.slice(7, 14); pool = set.slice(14); chain = []; over = false;
+    say('Tu turno ♥');
+    render();
+  }
+
+  $$('.dom-diff-btn').forEach(b => b.addEventListener('click', () => {
+    diff = b.dataset.diff;
+    ensureAudio();
+    screen('play');
+    resetGame();
+  }));
+  $('#domDraw').addEventListener('click', () => {
+    if (over || legalMoves(hand, chain).length) return;
+    if (pool.length){ hand.push(pool.pop()); puff(); render(); }
+    else { say('Turno de tu esposo 🤫'); setTimeout(aiTurn, 500); render(); }
+  });
+  $('#domRestartMini').addEventListener('click', () => { screen('start'); });
+  $('#domAgain').addEventListener('click', () => { screen('start'); });
+})();
+
+/* ---------- VELA FINAL ---------- */
+const vela = $('#velaFinal');
+vela.addEventListener('click', () => {
+  if (vela.classList.contains('out')) return;
+  vela.classList.add('out'); puff(); ensureAudio();
+  setTimeout(() => {
+    $('#finalMsg').classList.add('show');
+    chime(); fireworks();
+  }, 500);
+});
+$('#masConfeti').addEventListener('click', () => { fireworks(); chime(); });
+})();
+</script>
+</body>
+</html>
